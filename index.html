@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Future Officer | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Library CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root{
+            --brand:#2563eb;
+            --brand-dark:#1e40af;
+            --bg-soft:#f8fafc;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:var(--bg-soft);
+            color:#111827;
+            line-height:1.6;
+        }
+
+        section{
+            max-width:1200px;
+            margin:auto;
+            padding:80px 24px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 40px;
+            background:white;
+            box-shadow:0 2px 12px rgba(0,0,0,0.06);
+            position:sticky;
+            top:0;
+            z-index:100;
+        }
+
+        .logo{
+            font-weight:700;
+            font-size:22px;
+            color:var(--brand);
+        }
+
+        .nav-links{
+            list-style:none;
+            display:flex;
+            gap:28px;
+        }
+
+        .nav-links a{
+            text-decoration:none;
+            color:#374151;
+            font-weight:500;
+            transition:.25s;
+        }
+
+        .nav-links a:hover{
+            color:var(--brand);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title{
+            text-align:center;
+            font-size:32px;
+            font-weight:700;
+            margin-bottom:40px;
+            color:#0f172a;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:60px;
+            flex-wrap:wrap;
+        }
+
+        .about-text{
+            flex:1;
+            min-width:260px;
+            font-size:16px;
+            line-height:1.7;
+            color:#374151;
+        }
+
+        .about-image{
+            flex:1;
+            display:flex;
+            justify-content:center;
+        }
+
+        .about-image img{
+            width:290px;
+            height:290px;
+            object-fit:cover;
+            border-radius:50%;
+            padding:6px;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            box-shadow:0 25px 50px rgba(0,0,0,0.18),0 0 0 6px rgba(255,255,255,0.9);
+            transition: all 0.4s ease;
+        }
+
+        .about-image img:hover{
+            transform: scale(1.07) rotate(1deg);
+            box-shadow:0 35px 70px rgba(0,0,0,0.22),0 0 25px rgba(99,102,241,0.45);
+        }
+
+        .intro-title{
+            font-size:48px;
+            font-weight:800;
+            line-height:1.2;
+            margin-bottom:20px;
+            color:#0f172a;
+        }
+
+        .intro-title span{
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .about-text p{
+            font-size:18px;
+            color:#475569;
+            max-width:520px;
+        }
+
+        @media (max-width:768px){
+            .about-container{
+                flex-direction:column-reverse;
+                text-align:center;
+            }
+
+            .intro-title{
+                font-size:34px;
+            }
+
+            .about-text p{
+                text-align:center;
+            }
+        }
+
+        /* ===== EDUCATION ===== */
+        .education-card{
+            display:flex;
+            align-items:center;
+            gap:24px;
+            background:#f8fafc;
+            padding:28px;
+            border-radius:18px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.06);
+            transition:all 0.25s ease;
+            max-width:720px;
+            margin:20px auto;
+        }
+
+        .education-card:hover{
+            transform:translateY(-4px);
+            box-shadow:0 20px 45px rgba(0,0,0,0.10);
+        }
+
+        .edu-icon{
+            width:60px;
+            height:60px;
+            border-radius:16px;
+            background:linear-gradient(135deg, #6366f1, #06b6d4);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:white;
+            font-size:24px;
+        }
+
+        .edu-right h3{
+            font-size:22px;
+            margin-bottom:6px;
+            color:#0f172a;
+        }
+
+        .edu-course{
+            font-weight:600;
+            color:#475569;
+            margin-bottom:4px;
+        }
+
+        .edu-college{
+            color:#64748b;
+            margin-bottom:8px;
+        }
+
+        .edu-year{
+            font-size:14px;
+            font-weight:600;
+            color:#6366f1;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-container{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:18px;
+            margin-top:20px;
+        }
+
+        .skill-btn{
+            padding:12px 22px;
+            border-radius:999px;
+            background:white;
+            border:2px solid var(--brand);
+            font-weight:600;
+            font-size:15px;
+            color:#111827;
+            cursor:pointer;
+            transition:all 0.28s ease;
+            box-shadow:0 4px 14px rgba(0,0,0,0.05);
+        }
+
+        .skill-btn:hover{
+            background:var(--brand);
+            color:white;
+            transform:translateY(-4px) scale(1.05);
+            box-shadow:0 12px 28px rgba(37,99,235,0.25);
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:32px;
+            margin-top:20px;
+        }
+
+        .project-card{
+            background:white;
+            padding:28px;
+            border-radius:18px;
+            box-shadow:0 10px 28px rgba(0,0,0,0.06);
+            transition:.3s;
+            border-top:4px solid var(--brand);
+        }
+
+        .project-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 18px 40px rgba(37,99,235,0.18);
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .certification-buttons{
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            justify-content:center;
+        }
+
+        .cert-button{
+            padding:10px 20px;
+            border:2px solid var(--brand);
+            border-radius:25px;
+            text-decoration:none;
+            color:#333;
+            font-weight:500;
+            transition:all 0.3s ease;
+            display:inline-block;
+        }
+
+        .cert-button:hover{
+            background-color:var(--brand);
+            color:white;
+            transform:translateY(-3px) scale(1.05);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:24px;
+            flex-wrap:wrap;
+            margin-top:20px;
+        }
+
+        .contact-card{
+            display:flex;
+            align-items:center;
+            gap:12px;
+            padding:14px 26px;
+            background:white;
+            border-radius:12px;
+            text-decoration:none;
+            color:#111827;
+            font-weight:600;
+            border:2px solid var(--brand);
+            transition:all 0.28s ease;
+            min-width:180px;
+            justify-content:center;
+        }
+
+        .contact-card:hover{
+            background:var(--brand);
+            color:white;
+            transform:translateY(-3px);
+            box-shadow:0 10px 25px rgba(37,99,235,0.25);
+        }
+
+        /* ===== FOOTER ===== */
+        footer{
+            text-align:center;
+            padding:30px;
+            background:white;
+            margin-top:60px;
+            color:#6b7280;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" data-aos="fade-down">
+    <div class="logo">Sunkara Vindhya</div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about" data-aos="fade-up">
+    <div class="about-container">
+        <div class="about-text">
+            <h1 class="intro-title">Hyy, I'm <span>Sunkara Vindhya</span></h1>
+            <p>
+                An aspiring Full Stack Developer with a strong focus on building clean, 
+                responsive, and user-friendly web applications using Python and Django.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="https://total-red-1kz0ivbp6s.edgeone.app/IMG_20260217_204932.png" alt="Vindhya">
+        </div>
+    </div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education" class="education" data-aos="fade-right">
+    <h2 class="section-title">Education</h2>
+    <div class="education-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-right">
+            <h3>Bachelor's Degree</h3>
+            <div class="edu-course ">B.Sc - Computer Science</div>
+            <div class="edu-college">Sri Venkateswara University, Tirupati</div>
+            <div class="edu-year">2023 – 2026</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" data-aos="fade-left">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+        <div class="skill-btn">🐍 Python</div>
+        <div class="skill-btn">🌐 HTML</div>
+        <div class="skill-btn">🎨 CSS</div>
+        <div class="skill-btn">⚡ JavaScript</div>
+        <div class="skill-btn">🚀 Django</div>
+        <div class="skill-btn">🗄️ SQL</div>
+        <div class="skill-btn">☕ Java</div>
+        <div class="skill-btn">📊 Power BI</div>
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" data-aos="fade-up">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Future Officer (JobTracker)</h3>
+            <p>Government job notification website built using Django.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+            <h3>Royal Cuisine</h3>
+            <p>Restaurant website with modern responsive design.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+            <h3>Portfolio</h3>
+            <p>Showcasing my journey as a Full Stack Developer with projects, skills, and certifications.</p>
+        </div>
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Interactive Education Analytics with Power BI</h3>
+            <p>Interactive Power BI dashboard analyzing educational data for insights and trends.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CERTIFICATIONS ===== -->
+<section id="certifications" class="certifications" data-aos="fade-up">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certification-buttons">
+        <a href="#" class="cert-button" data-aos="fade-up" data-aos-delay="200">🎓 Cloud Computing – Elewayte, 2025</a>
+        <a href="#" class="cert-button" data-aos="fade-up" data-aos-delay="400">💻 Frontend Development – Scholar’s Minds, 2025</a>
+        <a href="#" class="cert-button" data-aos="fade-up" data-aos-delay="600">🤖 Google AI Essentials – Google, 2025</a>
+        <a href="#" class="cert-button" data-aos="fade-up" data-aos-delay="800">📊 Analysing Data with Excel – IBM, 2025</a>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" data-aos="fade-up">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-container">
+        <a href="mailto:sunkaravindhya@gmail.com" class="contact-card">📧 Email</a>
+        <a href="https://www.linkedin.com/in/vindhya-sunkara-17ab41312" class="contact-card">💼 LinkedIn</a>
+        <a href="https://github.com/vindhya2209" class="contact-card">💻 GitHub</a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer data-aos="fade-up">
+    <p>© 2026 Sunkara Vindhya. All rights reserved.</p>
+</footer>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
+</script>
+
+</body>
+</html>
